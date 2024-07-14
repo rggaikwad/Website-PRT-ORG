@@ -14,9 +14,11 @@ pipeline {
     stage('Push Docker Image') {
       steps {
         script {
-          docker.withRegistry('https://github.com/rggaikwad/Website-PRT-ORG.git', 'DOCKERHUB_CREDENTIALS') {
+          docker.withRegistry('https://registry.hub.docker.com', 'DOCKERHUB_CREDENTIALS') {
             docker.image('rggaikwad17/website-prt-org').push('latest')
           }
         }
       }
     }
+    
+}
